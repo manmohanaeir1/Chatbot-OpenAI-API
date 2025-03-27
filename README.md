@@ -34,4 +34,13 @@ git clone https://github.com/your-username/Chatbot_LLM.git
 
 
 
+
+
+
+## **Chatbot Results**
+
+Below are some screenshots of the chatbot in action:
+
+### **Chatbot Output 1**
+
 ![alt text](image.png)
