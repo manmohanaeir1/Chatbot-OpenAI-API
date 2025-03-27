@@ -39,6 +39,29 @@ Navigate to the project directory and install the required dependencies.
 Below are some screenshots of the chatbot in action:
 
 ---
+### Running the Application
+
+To start the development server, use the following command:
+
+```bash
+python manage.py runserver
+📌 Visit the following URLs:
+http://127.0.0.1:8000/ai/chat/ → Chatbot
+
+http://127.0.0.1:8000/ai/book_appointment/ → Book Appointment
+
+http://127.0.0.1:8000/ai/user_details/ → Submit Contact Details
+
+```
+
 ### **Chatbot Output 1**
 
 ![alt text](image.png)
+
+### **Book_Appointment 2**
+
+![alt text](image-1.png)
+
+### **User Details 3**
+
+![alt text](image-2.png)
