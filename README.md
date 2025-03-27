@@ -48,12 +48,14 @@ Navigate to the project directory and install the required dependencies.
 
 To start the development server, use the following command:
 
-``` python manage.py runserver
+ ```bash
+
+python manage.py runserver
+
 ```
 
 
-```bash
-python manage.py runserver
+
 📌 Visit the following URLs:
 http://127.0.0.1:8000/ai/chat/ → Chatbot
 
