@@ -52,7 +52,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'Chatbot.urls'
 
 import os
-
+ 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

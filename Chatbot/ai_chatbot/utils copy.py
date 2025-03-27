@@ -1,32 +1,29 @@
-import google.generativeai as genai
-import os
-from dotenv import load_dotenv
-import re
+
+# OPEN AI API need payment to use it, so I will use the free version of the API in ahother Google's Gemini AI mode
+from openai import OpenAI
+
+client = OpenAI(api_key='paid')
 from datetime import datetime, timedelta
+import re
 
-# Load API Key from .env file (Recommended for security)
-load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-# Set up Gemini API
-genai.configure(api_key=GEMINI_API_KEY)
+import os
+  # Ensure you set this environment variable
 
-def get_answer(user_prompt):
-    """
-    Generates a response from Google's Gemini AI model.
-    
-    Args:
-        user_prompt (str): The user's question or input.
-
-    Returns:
-        str: The AI-generated response.
-    """
+# Function to send a message to the OpenAI API and return the response
+def get_answer(message: str) -> str:
     try:
-        model = genai.GenerativeModel("gemini-1.5-pro")   
-        response = model.generate_content(user_prompt)
-        return response.text.strip() if response.text else "Sorry, I couldn't generate a response."
-    
+        # Send request to OpenAI's updated Completion API
+        response = client.completions.create(model="gpt-3.5-turbo",  # You can use gpt-4 if you have access to it
+                                             prompt=message,
+                                             max_tokens=100,
+                                             temperature=0.7)  # Closed parenthesis
+
+        # Extract the response content
+        answer = response.choices[0].text.strip()
+        return answer
     except Exception as e:
         return f"Error: {str(e)}"
+
 
 
 # Function to parse a date input and convert it into a valid date format (YYYY-MM-DD)
@@ -82,4 +79,3 @@ def validate_phone(phone):
     if re.match(phone_regex, phone):
         return True
     return False
-
