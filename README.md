@@ -33,15 +33,24 @@ Clone the project repository to your local machine.
 git clone https://github.com/your-username/Chatbot_LLM.git
 
 ```
-### 2. **Install Dependencies**
+### 2. **Set Up the Virtual Environment**
 Navigate to the project directory and install the required dependencies.
 
-Below are some screenshots of the chatbot in action:
+
+
+``` python -m venv env
+    source env/bin/activate  # for MacOS/Linux
+    env\Scripts\activate  # for Windows
+```    
 
 ---
 ### Running the Application
 
 To start the development server, use the following command:
+
+``` python manage.py runserver
+```
+
 
 ```bash
 python manage.py runserver
@@ -53,7 +62,7 @@ http://127.0.0.1:8000/ai/book_appointment/ → Book Appointment
 http://127.0.0.1:8000/ai/user_details/ → Submit Contact Details
 
 ```
-
+Below are some screenshots of the chatbot in action:
 ### **Chatbot Output 1**
 
 ![alt text](image.png)
