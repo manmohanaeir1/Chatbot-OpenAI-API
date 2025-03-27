@@ -1,26 +1,29 @@
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key='AIzaSyDNUCKWd8WQtF4pcqjIEwYc9luoq1aPgxo')
 from datetime import datetime, timedelta
 import re
 
 import os
-openai.api_key ='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'  # Ensure you set this environment variable
+  # Ensure you set this environment variable
 
+# Function to send a message to the OpenAI API and return the response
 def get_answer(message: str) -> str:
     try:
         # Send request to OpenAI's updated Completion API
-        response = openai.Completion.create(
-            model="gpt-3.5-turbo",   
-            prompt=message,
-            max_tokens=100,   
-            temperature=0.7   
-        )
+        response = client.completions.create(model="gpt-3.5-turbo",  # You can use gpt-4 if you have access to it
+                                             prompt=message,
+                                             max_tokens=100,
+                                             temperature=0.7)  # Closed parenthesis
 
         # Extract the response content
-        answer = response['choices'][0]['text'].strip()
+        answer = response.choices[0].text.strip()
         return answer
     except Exception as e:
         return f"Error: {str(e)}"
-        
+
+
+
 # Function to parse a date input and convert it into a valid date format (YYYY-MM-DD)
 
 def parse_date(date_input):
@@ -28,7 +31,7 @@ def parse_date(date_input):
     Function to parse user input for dates (e.g., 'Next Monday', '2025-03-29', 'Next Friday').
     Returns the date in YYYY-MM-DD format.
     """
-   
+
     try:
         parsed_date = datetime.strptime(date_input, "%Y-%m-%d").date()
         return parsed_date
