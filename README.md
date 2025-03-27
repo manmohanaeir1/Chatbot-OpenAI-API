@@ -32,12 +32,8 @@ Clone the project repository to your local machine.
 ```bash
 git clone https://github.com/your-username/Chatbot_LLM.git
 
-
-
-
-
-
-## **Chatbot Results**
+### 2. **Install Dependencies**
+Navigate to the project directory and install the required dependencies.
 
 Below are some screenshots of the chatbot in action:
 
